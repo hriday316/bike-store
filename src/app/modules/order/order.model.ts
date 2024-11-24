@@ -16,10 +16,12 @@ const orderScheme = new Schema<OrderType>(
     },
     quantity: {
       type: Number,
+      min: 1,
       required: [true, 'Quantity is required'],
     },
     totalPrice: {
       type: Number,
+      min: 0,
       required: [true, 'Price is required'],
     },
   },
@@ -28,7 +30,7 @@ const orderScheme = new Schema<OrderType>(
 
 //  post hook middleware for update inventory quantity
 
-orderScheme.post('save', async function (doc:OrderType, next) {
+orderScheme.post('save', async function (doc: OrderType, next) {
   const productId = doc?.product;
   const orderQuantity = doc?.quantity;
   const product = await Products.findById(productId);

@@ -24,7 +24,7 @@ const createOrder = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: 'Order unsuccesfull!',
       success: false,
@@ -44,7 +44,7 @@ const ordersRevenue = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: 'Total revenue calculate unsuccessfull!',
       success: false,

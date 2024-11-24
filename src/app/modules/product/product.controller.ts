@@ -24,7 +24,7 @@ const createProduct = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: 'Bike created unsuccesfull!',
       success: false,
@@ -55,7 +55,7 @@ const getAllProduct = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: err?.message || 'something went wrong',
       success: false,
@@ -70,13 +70,21 @@ const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const result = await ProductServices.getSingleProductFromDB(productId);
-    res.status(200).json({
-      status: true,
-      message: 'Bike retrieved successfully!',
-      data: result,
-    });
+    if (!result) {
+      res.status(404).json({
+        status: true,
+        message: 'Bike not fount!',
+        data: result,
+      });
+    } else {
+      res.status(200).json({
+        status: true,
+        message: 'Bike retrieved successfully!',
+        data: result,
+      });
+    }
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: err?.message || 'something went wrong',
       success: false,
@@ -102,7 +110,7 @@ const updateProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: err?.message || 'something went wrong',
       success: false,
@@ -123,7 +131,7 @@ const deleteProduct = async (req: Request, res: Response) => {
       data: {},
     });
   } catch (error) {
-    const err = error as Error
+    const err = error as Error;
     res.status(500).json({
       message: err?.message || 'something went wrong',
       success: false,

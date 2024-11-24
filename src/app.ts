@@ -14,7 +14,7 @@ app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('hello developers');
+  res.send('Wellcome to bike store backend server..');
 });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
