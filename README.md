@@ -3,7 +3,7 @@
 
 ## Descripttion :
 
-    This website is a bike store application built using Express, Node.js, Mongoose, and TypeScript, with Joi for data validation. It allows users to store new bike data in the database, search for bikes by name, category, or brand, see detailed information about specific bikes, place orders, and calculate the total revenue from all orders. If any error occurred it gives detailed error responses.
+This website is a bike store application built using Express, Node.js, Mongoose, and TypeScript, with Joi for data validation. It allows users to store new bike data in the database, search for bikes by name, category, or brand, see detailed information about specific bikes, place orders, and calculate the total revenue from all orders. If any error occurred it gives detailed error responses.
 
 ## Feature details of Bike Store Website
 
