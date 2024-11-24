@@ -24,11 +24,12 @@ const createProduct = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
+    const err = error as Error
     res.status(500).json({
       message: 'Bike created unsuccesfull!',
       success: false,
       data: error,
-      stack: error?.stack,
+      stack: err?.stack,
     });
   }
 };
@@ -54,11 +55,12 @@ const getAllProduct = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
+    const err = error as Error
     res.status(500).json({
-      message: error?.message || 'something went wrong',
+      message: err?.message || 'something went wrong',
       success: false,
       data: error,
-      stack: error?.stack,
+      stack: err?.stack,
     });
   }
 };
@@ -74,11 +76,12 @@ const getSingleProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
+    const err = error as Error
     res.status(500).json({
-      message: error?.message || 'something went wrong',
+      message: err?.message || 'something went wrong',
       success: false,
       data: error,
-      stack: error?.stack,
+      stack: err?.stack,
     });
   }
 };
@@ -99,11 +102,12 @@ const updateProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
+    const err = error as Error
     res.status(500).json({
-      message: error?.message || 'something went wrong',
+      message: err?.message || 'something went wrong',
       success: false,
       data: error,
-      stack: error?.stack,
+      stack: err?.stack,
     });
   }
 };
@@ -119,11 +123,12 @@ const deleteProduct = async (req: Request, res: Response) => {
       data: {},
     });
   } catch (error) {
+    const err = error as Error
     res.status(500).json({
-      message: error?.message || 'something went wrong',
+      message: err?.message || 'something went wrong',
       success: false,
       data: error,
-      stack: error?.stack,
+      stack: err?.stack,
     });
   }
 };

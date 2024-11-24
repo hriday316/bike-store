@@ -1,6 +1,7 @@
-import { model, Schema, Types } from 'mongoose';
+import { model, Schema } from 'mongoose';
 import { OrderType } from './order.interface';
 import { Products } from '../product/product.model';
+import mongoose from 'mongoose';
 
 const orderScheme = new Schema<OrderType>(
   {
@@ -9,7 +10,7 @@ const orderScheme = new Schema<OrderType>(
       required: [true, 'Email is required!'],
     },
     product: {
-      type: Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'Products',
       required: [true, 'Product is required'],
     },
@@ -27,7 +28,7 @@ const orderScheme = new Schema<OrderType>(
 
 //  post hook middleware for update inventory quantity
 
-orderScheme.post('save', async function (doc, next) {
+orderScheme.post('save', async function (doc:OrderType, next) {
   const productId = doc?.product;
   const orderQuantity = doc?.quantity;
   const product = await Products.findById(productId);
