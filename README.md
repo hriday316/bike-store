@@ -8,7 +8,7 @@ This website is a bike store application built using Express, Node.js, Mongoose,
 
 ## Feature details of Bike Store Website
 
-### 1. Add a new bike
+#### 1. Add a new bike
 
 Users can add bike details to the database, including the bike's name, brand, category, price, description, quantity, stock status, and timestamps for creation and updates. The category field is restricted to specific predefined values, ensuring that only valid categories are allowed.
 
